@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+  
+  .arc-text {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 250px;
+  }
+  
+  @media (min-width: 768px) {
+    .arc-text {
+      min-height: 350px;
+    }
+  }
+  
+  .arc-text span {
+    position: absolute;
+    white-space: nowrap;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-shadow:
+      0 1px 0 #ccc,
+      0 2px 0 #c9c9c9,
+      0 3px 0 #bbb,
+      0 4px 0 #b9b9b9,
+      0 5px 0 #aaa,
+      0 6px 1px rgba(0,0,0,.1),
+      0 0 5px rgba(0,0,0,.1),
+      0 1px 3px rgba(0,0,0,.3),
+      0 3px 5px rgba(0,0,0,.2),
+      0 5px 10px rgba(0,0,0,.25),
+      0 10px 10px rgba(0,0,0,.2),
+      0 20px 20px rgba(0,0,0,.15);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Custom slider arrow styles */
+.slick-prev,
+.slick-next {
+  width: auto !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none !important;
+}
+
+.slick-dots li button:before {
+  @apply text-white opacity-75;
+}
+
+.slick-dots li.slick-active button:before {
+  @apply text-yellow-400 opacity-100;
+}
